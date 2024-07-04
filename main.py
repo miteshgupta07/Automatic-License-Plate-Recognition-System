@@ -1,69 +1,72 @@
 from ultralytics import YOLO
 import cv2
 from sort.sort import *
-import numpy as np
-from util import *
+from util import get_car, read_license_plate, write_csv
 
-# Load Model
-vehicle_tracker=Sort()
 
-vehicle_detection_model=YOLO('yolov8n.pt')
-license_plate_detector=YOLO('License_Plate_Detector.pt')
+results = {}
 
-# Load Video
-cap=cv2.VideoCapture("E:\\Data Science\\Projects\\Sample.mp4")
+vehicle_tracker = Sort()
 
-vehicle_list=[2,3,5,7]
+# load models
+vehicle_detection_model = YOLO('yolov8n.pt')
+license_plate_detector = YOLO('License_Plate_Detector.pt')
 
-results={}
-frame_count=-1
-success=True
+# load video
+cap = cv2.VideoCapture('E:\\Data Science\\Projects\\Sample.mp4')
+
+vehicle_list = [2, 3, 5, 7]
+
+# read frames
+frame_count = -1
+success = True
 while success:
-    frame_count+=1
-
-    # Read Frames
-    success,frame=cap.read()
+    frame_count += 1
+    success, frame = cap.read()
     if success:
-        results[frame_count]={}
-
-        # Detect Vehicles
-        detections=vehicle_detection_model(frame)[0]
-        detect=[]
+        results[frame_count] = {}
+        # detect vehicle_list
+        detections = vehicle_detection_model(frame)[0]
+        detections_ = []
         for detection in detections.boxes.data.tolist():
-            x1,y1,x2,y2,score,class_id=detection
+            x1, y1, x2, y2, score, class_id = detection
             if int(class_id) in vehicle_list:
-                detect.append([x1,y1,x2,y2,score])
+                detections_.append([x1, y1, x2, y2, score])
 
-        # Track Vehicles
-        track_ids=vehicle_tracker.update(np.asarray(detect))
+        # track vehicle_list
+        track_ids = vehicle_tracker.update(np.asarray(detections_))
 
-        # Detect License Plates
-        license_plates=license_plate_detector(frame)[0]
+        # detect license plates
+        license_plates = license_plate_detector(frame)[0]
         for license_plate in license_plates.boxes.data.tolist():
-                x1,y1,x2,y2,score,class_id=license_plate
+            x1, y1, x2, y2, score, class_id = license_plate
 
-                # Assign License Plate To Car
-                x_car1,y_car1,x_car2,y_car2,car_id=get_car(license_plate,track_ids)
+            # assign license plate to car
+            xcar1, ycar1, xcar2, ycar2, car_id = get_car(
+                license_plate, track_ids)
 
-                if car_id!=-1:
-                    # Crop License Plate
-                    license_plate_crop=frame[int(y1):int(y2), int(x1):int(x2),:]
+            if car_id != -1:
 
-                    # Process License PLate
-                    gray_license_plate=cv2.cvtColor(license_plate_crop,cv2.COLOR_BGR2GRAY)
-                    _,threshold_license_plate=cv2.threshold(gray_license_plate,64,255,cv2.THRESH_BINARY_INV)
+                # crop license plate
+                license_plate_crop = frame[int(
+                    y1):int(y2), int(x1): int(x2), :]
 
-                    # Read License Plate
-                    license_plate_text,license_plate_text_score=read_license_plate(threshold_license_plate)
+                # process license plate
+                license_plate_crop_gray = cv2.cvtColor(
+                    license_plate_crop, cv2.COLOR_BGR2GRAY)
+                _, license_plate_crop_thresh = cv2.threshold(
+                    license_plate_crop_gray, 64, 255, cv2.THRESH_BINARY_INV)
 
-                    if license_plate is not None:
-                        results[frame_count][car_id]={'car':{"bbox":[x_car1,y_car1,x_car2,y_car2]},
-                                                'license_plate':{'bbox':[x1,y1,x2,y2],
-                                                                'text':license_plate_text,
-                                                                'bbox_score':score,
-                                                                'text_score':license_plate_text_score}}
-                
-            
-# Write Results
-write_csv(results,'./test.csv')
-print('CSV Done')
+                # read license plate number
+                license_plate_text, license_plate_text_score = read_license_plate(
+                    license_plate_crop_thresh)
+
+                if license_plate_text is not None:
+                    results[frame_count][car_id] = {'car': {'bbox': [xcar1, ycar1, xcar2, ycar2]},
+                                                    'license_plate': {'bbox': [x1, y1, x2, y2],
+                                                                      'text': license_plate_text,
+                                                                      'bbox_score': score,
+                                                                      'text_score': license_plate_text_score}}
+
+# write results
+write_csv(results, './test.csv')
