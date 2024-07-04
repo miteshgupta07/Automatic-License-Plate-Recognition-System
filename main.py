@@ -1,11 +1,9 @@
 from ultralytics import YOLO
 import cv2
 from sort.sort import *
-import csv
 import numpy as np
 from scipy.interpolate import interp1d
 from util import get_car, read_license_plate, write_csv
-from add_missing_data import interpolate_bounding_boxes
 
 results = {}
 
