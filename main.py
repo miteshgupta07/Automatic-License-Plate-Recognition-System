@@ -1,8 +1,9 @@
 from ultralytics import YOLO
 import cv2
 from sort.sort import *
+import numpy as np
 
-model_tracker=Sort()
+vehicle_tracker=Sort()
 
 vehicle_detection_model=YOLO('yolov8n.pt')
 license_plate_detector=YOLO('License_Plate_Detector.pt')
@@ -19,11 +20,14 @@ while True:
     if not success:
         break
 
-    print(success)
     detections=vehicle_detection_model(frame)[0]
     detect=[]
     for detection in detections.boxes.data.tolist():
         x1,y1,x2,y2,score,class_id=detection
         if int(class_id) in vehicle_list:
             detect.append([x1,y1,x2,y2,score])
-        
+
+    track_ids=vehicle_tracker.update(np.asarray(detect))
+    license_plates=license_plate_detector(frame)[0]
+    for license_plate in license_plates.boxes.data.tolist():
+            x1,y1,x2,y2,score,class_id=license_plate
