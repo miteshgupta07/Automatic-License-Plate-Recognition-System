@@ -65,5 +65,5 @@ while True:
                 
             
 # Write Results
-write_csv(results,'E:\\Data Science\\Projects\\Automatic-Number-Plate-Recognition\\test.csv')
+# write_csv(results,'E:\\Data Science\\Projects\\Automatic-Number-Plate-Recognition\\test.csv')
 print('CSV Done')
