@@ -11,7 +11,7 @@ vehicle_detection_model=YOLO('yolov8n.pt')
 license_plate_detector=YOLO('License_Plate_Detector.pt')
 
 # Load Video
-cap=cv2.VideoCapture("Sample.mp4")
+cap=cv2.VideoCapture("E:\Data Science\Projects\Sample.mp4")
 
 vehicle_list=[2,3,5,7]
 
@@ -49,7 +49,3 @@ while True:
             # Process License PLate
             gray_license_plate=cv2.cvtColor(license_plate_crop,cv2.COLOR_BGR2GRAY)
             _,threshold_license_plate=cv2.threshold(gray_license_plate,64,255,cv2.THRESH_BINARY_INV)
-
-            cv2.show("Original License Plate",license_plate)
-            cv2.show("Gray License Plate",gray_license_plate)
-            cv2.show("Thresh License Plate",threshold_license_plate)
