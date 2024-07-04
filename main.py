@@ -14,7 +14,7 @@ vehicle_detection_model = YOLO('yolov8n.pt')
 license_plate_detector = YOLO('License_Plate_Detector.pt')
 
 # load video
-cap = cv2.VideoCapture('E:\\Data Science\\Projects\\Sample.mp4')
+cap = cv2.VideoCapture('./Sample.mp4') # path to sample video
 
 vehicle_list = [2, 3, 5, 7]
 

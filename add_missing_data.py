@@ -78,7 +78,7 @@ def interpolate_bounding_boxes(data):
 
 
 # # Load the CSV file
-with open('test.csv', 'r') as file:
+with open('./test.csv', 'r') as file:
     reader = csv.DictReader(file)
     data = list(reader)
 
