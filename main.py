@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 from sort.sort import *
 import numpy as np
-from util import get_car
+from util import *
 
 # Load Model
 vehicle_tracker=Sort()
@@ -15,6 +15,8 @@ cap=cv2.VideoCapture("E:\Data Science\Projects\Sample.mp4")
 
 vehicle_list=[2,3,5,7]
 
+results={}
+
 while True:
     # if cap.get(cv2.CAP_PROP_POS_FRAMES) == cap.get(cv2.CAP_PROP_FRAME_COUNT):
     #         cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
@@ -24,6 +26,8 @@ while True:
     if not success:
         break
     
+    results[frame]={}
+
     # Detect Vehicles
     detections=vehicle_detection_model(frame)[0]
     detect=[]
@@ -49,3 +53,16 @@ while True:
             # Process License PLate
             gray_license_plate=cv2.cvtColor(license_plate_crop,cv2.COLOR_BGR2GRAY)
             _,threshold_license_plate=cv2.threshold(gray_license_plate,64,255,cv2.THRESH_BINARY_INV)
+
+            # Read License Plate
+            license_plate_text,license_plate_text_score=read_license_plate(threshold_license_plate)
+
+            if license_plate is not None:
+                 results[frame][car_id]={'car':{"bbox":[x_car1,y_car1,x_car2,y_car2]},
+                                         'license_plate':{'bbox':[x1,y1,x2,y2],
+                                                          'text':license_plate_text,
+                                                          'bbox_score':score,
+                                                          'text_score':license_plate_text_score}}
+                 
+            
+# Write Results
