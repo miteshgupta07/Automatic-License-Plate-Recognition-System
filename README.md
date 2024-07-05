@@ -9,6 +9,9 @@ This project is an Automatic License Plate Recognition (ALPR) system that uses c
 - `add_missing_data.py`
 - `visualize.py`
 
+# Dataset
+The dataset used in this project is [here](https://universe.roboflow.com/roboflow-universe-projects/license-plate-recognition-rxg4e/dataset/4).
+
 ## Workflow
 
 1. **Vehicle and License Plate Detection**: `main.py`
@@ -66,6 +69,9 @@ This will process the initial CSV file to add any missing data.
    python visualize.py
 
 This will process the input video and create an output video with the detected license plates highlighted.
+
+# Acknowledgements
+This project was made possible by the use of a dataset from [Roboflow](https://roboflow.com/). Their comprehensive and high-quality dataset greatly facilitated the development and testing of the license plate recognition system.
 
 # Contributing
 Feel free to submit issues or pull requests if you have any suggestions or improvements.
