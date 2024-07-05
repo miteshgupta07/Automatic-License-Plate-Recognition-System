@@ -41,7 +41,7 @@ This file processes the input video to create an output video with the detected 
    cd <repository-directory>
 
 2. **Install the required libraries:**
-   '''bash
+   ```bash
    pip install -r requirements.txt
 
 3. **Ensure you have the necessary video files in the correct directory.**
@@ -49,20 +49,20 @@ This file processes the input video to create an output video with the detected 
 ## How to Run
 
 1. **Run the main script:** 
-   '''bash
+   ```bash
    python main.py
    
 This will detect vehicles and license plates in the input video and create an initial CSV file with the results.
 
 2. **Run the add_missing_data script:**
-   '''bash
+   ```bash
    python add_missing_data.py
    
 This will process the initial CSV file to add any missing data.
 
 3. **Run the visualize script:**
 
-   '''bash
+   ```bash
    python visualize.py
 
 This will process the input video and create an output video with the detected license plates highlighted.
