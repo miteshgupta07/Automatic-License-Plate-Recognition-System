@@ -1,4 +1,4 @@
-# Automatic License Plate Recognition System
+# 🚗 Automatic License Plate Recognition System
 
 ## Overview
 
@@ -9,16 +9,17 @@ This project is an Automatic License Plate Recognition (ALPR) system that uses c
 - `add_missing_data.py`
 - `visualize.py`
 
-# Dataset
+## 📊 Dataset
+
 The dataset used in this project is [here](https://universe.roboflow.com/roboflow-universe-projects/license-plate-recognition-rxg4e/dataset/4).
 
-## Workflow
+## 🛠️ Workflow
 
 1. **Vehicle and License Plate Detection**: `main.py`
 2. **Add Missing Data**: `add_missing_data.py`
 3. **Visualize Results**: `visualize.py`
 
-## File Descriptions
+## 📁 File Descriptions
 
 ### main.py
 
@@ -36,7 +37,7 @@ This file processes the initial CSV file created by `main.py` to add any missing
 
 This file processes the input video to create an output video with the detected license plates highlighted.
 
-## Setup and Installation
+## ⚙️ Setup and Installation
 
 1. **Clone the repository:**
    ```bash
@@ -49,7 +50,7 @@ This file processes the input video to create an output video with the detected 
 
 3. **Ensure you have the necessary video files in the correct directory.**
 
-## How to Run
+## 🚀 How to Run
 
 1. **Run the main script:** 
    ```bash
@@ -70,11 +71,11 @@ This will process the initial CSV file to add any missing data.
 
 This will process the input video and create an output video with the detected license plates highlighted.
 
-# Acknowledgements
+# 🙏 Acknowledgements
 This project was made possible by the use of a dataset from [Roboflow](https://roboflow.com/). Their comprehensive and high-quality dataset greatly facilitated the development and testing of the license plate recognition system.
 
-# Contributing
+# 🤝 Contributing
 Feel free to submit issues or pull requests if you have any suggestions or improvements.
 
-# License
+# 📜 License
 This project is licensed under the MIT License.
