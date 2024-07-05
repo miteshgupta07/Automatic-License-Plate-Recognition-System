@@ -80,4 +80,4 @@ This project was made possible by the use of a dataset from [Roboflow](https://r
 Feel free to submit issues or pull requests if you have any suggestions or improvements.
 
 ## 📜 License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://github.com/miteshgupta07/Automatic-Number-Plate-Recognition-System/blob/main/LICENSE).
