@@ -1,4 +1,6 @@
-# 🚗 Automatic License Plate Recognition System
+<div align=center>
+<h1> 🚗 Automatic License Plate Recognition System 🚗</h1>
+</div>
 
 ## Overview
 
