@@ -14,8 +14,8 @@ This project is an Automatic License Plate Recognition (ALPR) system that uses c
 ## 📊 Dataset
 
 The dataset used in this project is [here](https://universe.roboflow.com/roboflow-universe-projects/license-plate-recognition-rxg4e/dataset/4).
+![image](https://github.com/miteshgupta07/Automatic-Number-Plate-Recognition-System/assets/111682782/d5bcda42-a4aa-4d20-b8c6-2f0cbe1d65b5)
 
-![image](https://github.com/miteshgupta07/Automatic-Number-Plate-Recognition-System/assets/111682782/80486695-7893-4e50-a483-0ddfc1283819)
 
 
 ## 🛠️ Workflow
