@@ -71,11 +71,11 @@ This will process the initial CSV file to add any missing data.
 
 This will process the input video and create an output video with the detected license plates highlighted.
 
-# 🙏 Acknowledgements
+## 🙏 Acknowledgements
 This project was made possible by the use of a dataset from [Roboflow](https://roboflow.com/). Their comprehensive and high-quality dataset greatly facilitated the development and testing of the license plate recognition system.
 
-# 🤝 Contributing
+## 🤝 Contributing
 Feel free to submit issues or pull requests if you have any suggestions or improvements.
 
-# 📜 License
+## 📜 License
 This project is licensed under the MIT License.
