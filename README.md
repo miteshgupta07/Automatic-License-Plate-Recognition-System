@@ -11,12 +11,13 @@ This project is an Automatic License Plate Recognition (ALPR) system that uses c
 - `add_missing_data.py`
 - `visualize.py`
 
+<p align="center">
+  <img src="https://github.com/miteshgupta07/Automatic-Number-Plate-Recognition-System/assets/111682782/d5bcda42-a4aa-4d20-b8c6-2f0cbe1d65b5" width="500" height="300">
+</p>
+
 ## 📊 Dataset
 
 The dataset used in this project is [here](https://universe.roboflow.com/roboflow-universe-projects/license-plate-recognition-rxg4e/dataset/4).
-![image](https://github.com/miteshgupta07/Automatic-Number-Plate-Recognition-System/assets/111682782/d5bcda42-a4aa-4d20-b8c6-2f0cbe1d65b5)
-
-
 
 ## 🛠️ Workflow
 
@@ -83,4 +84,4 @@ This project was made possible by the use of a dataset from [Roboflow](https://r
 Feel free to submit issues or pull requests if you have any suggestions or improvements.
 
 ## 📜 License
-This project is licensed under the [MIT License](https://github.com/miteshgupta07/Automatic-Number-Plate-Recognition-System/blob/main/LICENSE).
+This project is licensed under the MIT LICENSE - see the [LICENSE](https://github.com/miteshgupta07/Automatic-Number-Plate-Recognition-System/blob/main/LICENSE) file for details.
