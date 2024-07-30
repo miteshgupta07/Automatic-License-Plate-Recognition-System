@@ -5,7 +5,7 @@
 ## Overview
 
 This project is an Automatic License Plate Recognition (ALPR) system that uses computer vision and the EasyOCR library to detect and read license plate numbers from video footage, and then saves the results into a CSV file. The system consists of four main files:
-
+ 
 - `main.py`
 - `utils.py`
 - `add_missing_data.py`
