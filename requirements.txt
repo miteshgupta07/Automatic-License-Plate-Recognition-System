@@ -1,0 +1,9 @@
+ultralytics==8.1.29
+opencv-python==4.9.0.80
+numpy==1.24.4
+easyocr==1.7.1
+scipy==1.11.4
+pandas==2.2.2
+filterpy==1.4.5
+scikit-image==0.17.2
+lap==0.4.0
